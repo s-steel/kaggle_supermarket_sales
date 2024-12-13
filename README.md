@@ -19,9 +19,7 @@
 1. [Contributing](#contributing)
 
 ## About This Project
-Visit [Untangled](https://github.com/2008-Untangled) to view all the repositories associated with this application.
-
-This microservice allows you to query a song name and receive a response that includes the song name, artist name, album name, album release date, and a url for that song on spotify.  It takes in the song name query, then consumes the [Spotify API](https://developer.spotify.com/documentation/web-api/) to get information about that song.  The relevant information for that song is then extracted and compiled, and then returned in the microservice response.   
+WIP 
 
 ## Virtual Environment setup
 
