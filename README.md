@@ -37,3 +37,8 @@ pip3 install -r requirements.txt
 
 To shut off your virtual environment, run `deactivate` at a terminal where you
 have an active virtual environment.
+
+## Testing
+
+To run tests first activate your virtual environment with `source venv/bin/activate`<br>
+Then run `python3 -m pytest`
