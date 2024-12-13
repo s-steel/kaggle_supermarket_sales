@@ -1,0 +1,4 @@
+kaggle         # For Kaggle API
+pandas         # For data transformation
+sqlalchemy     # For SQLite database interaction
+pytest         # For testing
