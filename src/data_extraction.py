@@ -1,5 +1,5 @@
 import os
-import kaggle
+from kaggle.api.kaggle_api_extended import KaggleApi
 import logging
 
 def setup_logger():
@@ -9,50 +9,22 @@ def setup_logger():
         format='%(asctime)s - %(levelname)s - %(message)s'
     )
 
-def download_dataset(dataset: str, download_path: str) -> str:
+def data_extract(dataset: str, output_path: str) -> str:
     """
-    Downloads the Kaggle dataset to the specified directory.
-    Args:
-        dataset (str): Kaggle dataset identifier (e.g., 'aungpyaeap/supermarket-sales').
-        download_path (str): Directory where the dataset will be downloaded.
-    Returns:
-        str: Path to the extracted dataset file.
+    Downloads a Kaggle dataset and returns the path to the extracted CSV file.
     """
-    try:
-        # Ensure Kaggle API credentials are present
-        if not os.path.exists(os.path.expanduser("~/.kaggle/kaggle.json")):
-            raise ValueError("Kaggle API credentials not found. Please place 'kaggle.json' in ~/.kaggle/.")
-        os.makedirs(download_path, exist_ok=True)
+    if not os.path.exists(os.path.expanduser("~/.kaggle/kaggle.json")):
+        raise ValueError("Kaggle API credentials not found. Please place 'kaggle.json' in ~/.kaggle/.")
+    
+    if not os.path.exists(output_path):
+        raise FileNotFoundError(f"Invalid download directory: {output_path}")
+    
+    api = KaggleApi()
+    api.authenticate()
+    api.dataset_download_files(dataset, path=output_path, unzip=True)
 
-        # Download and unzip dataset
-        logging.info(f"Downloading dataset '{dataset}' to '{download_path}'...")
-        kaggle.api.dataset_download_files(dataset, path=download_path, unzip=True)
-        logging.info(f"Dataset downloaded and extracted to '{download_path}'.")
-
-        # Check for CSV files in the directory
-        for file in os.listdir(download_path):
-            if file.endswith('.csv'):
-                return os.path.join(download_path, file)
-
-        raise Exception("No CSV file found in the extracted dataset.")
-    except ValueError as e:
-        logging.error(e)
-        raise
-    except Exception as e:
-        logging.error(f"An error occurred while downloading the dataset: {e}")
-        raise
-
-def main():
-    setup_logger()
-
-    DATASET = "aungpyaeap/supermarket-sales"
-    DOWNLOAD_PATH = "./data"
-
-    try:
-        csv_file_path = download_dataset(DATASET, DOWNLOAD_PATH)
-        logging.info(f"Dataset ready for processing: {csv_file_path}")
-    except Exception as e:
-        logging.error(f"Data extraction failed: {e}")
-
-if __name__ == "__main__":
-    main()
+    for file in os.listdir(output_path):
+        if file.endswith(".csv"):
+            return os.path.join(output_path, file)
+    
+    raise FileNotFoundError("CSV file not found in the downloaded dataset.")
