@@ -1,6 +1,6 @@
 import os
 import pytest
-from src.data_extraction import download_dataset
+from src.data_extraction import data_extract
 
 # Mock dataset identifier for testing
 TEST_DATASET = "aungpyaeap/supermarket-sales"
@@ -33,15 +33,15 @@ def mock_kaggle_json(monkeypatch):
     monkeypatch.setattr("os.path.exists", mock_exists)
 
 # Test successful dataset download
-def test_download_dataset_success(mock_kaggle_api, mock_kaggle_json, mock_download_path):
-    result = download_dataset(TEST_DATASET, str(mock_download_path))
+def test_data_extract_success(mock_kaggle_api, mock_kaggle_json, mock_download_path):
+    result = data_extract(TEST_DATASET, str(mock_download_path))
 
-    expected_file_path = os.path.join(str(mock_download_path), "mock_dataset.csv")
+    expected_file_path = os.path.join(str(mock_download_path), "supermarket_sales - Sheet1.csv")
     assert result == expected_file_path, f"Expected {expected_file_path}, got {result}"
     assert os.path.exists(result), "Expected file does not exist."
 
 # Test failure when kaggle.json is missing
-def test_download_dataset_missing_kaggle_json(monkeypatch, mock_download_path):
+def test_data_extract_missing_kaggle_json(monkeypatch, mock_download_path):
     original_exists = os.path.exists
 
     def mock_exists(path):
@@ -52,11 +52,11 @@ def test_download_dataset_missing_kaggle_json(monkeypatch, mock_download_path):
     monkeypatch.setattr("os.path.exists", mock_exists)
 
     with pytest.raises(ValueError, match="Kaggle API credentials not found. Please place 'kaggle.json' in ~/.kaggle/."):
-        download_dataset(TEST_DATASET, str(mock_download_path))
+        data_extract(TEST_DATASET, str(mock_download_path))
 
 # Test failure when download path is invalid
-def test_download_dataset_invalid_path(mock_kaggle_api, mock_kaggle_json):
+def test_data_extract_invalid_path(mock_kaggle_api, mock_kaggle_json):
     invalid_path = "/invalid/path/to/directory"
 
     with pytest.raises(Exception):
-        download_dataset(TEST_DATASET, invalid_path)
+        data_extract(TEST_DATASET, invalid_path)
