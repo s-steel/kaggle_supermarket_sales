@@ -1,0 +1,13 @@
+city,customer_type,gender,branch,customer_id
+Yangon,Member,Female,A,1
+Naypyitaw,Normal,Female,C,2
+Yangon,Normal,Male,A,3
+Yangon,Member,Male,A,4
+Naypyitaw,Normal,Male,C,5
+Mandalay,Member,Female,B,6
+Mandalay,Member,Male,B,7
+Yangon,Normal,Female,A,8
+Mandalay,Normal,Female,B,9
+Naypyitaw,Member,Male,C,10
+Mandalay,Normal,Male,B,11
+Naypyitaw,Member,Female,C,12
