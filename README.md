@@ -44,7 +44,7 @@ Make sure you have downloaded the API key and placed it in the correct location(
 
 To run the application in your local dev environment run:
 ```bash
-python main.py
+python3 main.py
 ```
 
 ## Testing
@@ -65,17 +65,17 @@ Dataset URL: https://www.kaggle.com/datasets/aungpyaeap/supermarket-sales?resour
 
 `data_extraction.py`: Calls the Kaggle API, and downloads the data into the `/data` directory 
 
-`data_transformation.py`: Pulls the raw data file from `/data`, does some minor transformations, identifies and splits data into what will be the dact table(sales) and the dimension tables(customers & products).  These three data sets are then saved as files in the `/transform_data` directory.
+`data_transformation.py`: Pulls the raw data file from `/data`, does some minor transformations, identifies and splits data into what will be the fact table(sales) and the dimension tables(customers & products).  These three data sets are then saved as files in the `/transform_data` directory.
 
 `data_load.py`: This pulls the three files from the `/transform_data` directory and loads the data into a SQLite database, `supermarket_sales.db`.  
 
 `generate_report.py`: This runs a query on the database to create a report that is then uploaded to the `outgoing/reports` directory.  
 
----Add pic here---
+![Screenshot 2024-12-16 at 10 02 47 AM](https://github.com/user-attachments/assets/4190a960-72cb-438d-8f36-9903bd867903)
 
 ## Database Schema
 
----Add pic here---
+![Screenshot 2024-12-16 at 9 37 11 AM](https://github.com/user-attachments/assets/ed39262a-7e76-449d-8768-7fa44ebe3c02)
 
 ## Report
 
