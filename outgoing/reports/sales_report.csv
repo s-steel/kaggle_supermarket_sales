@@ -1,0 +1,37 @@
+city,customer_type,product_line,total_sales,rank
+Mandalay,Member,Health and beauty,11327.82,1
+Mandalay,Member,Sports and travel,10420.053,2
+Mandalay,Normal,Home and lifestyle,9779.8575,3
+Mandalay,Normal,Electronic accessories,9626.589,4
+Mandalay,Normal,Sports and travel,9568.145999999999,5
+Mandalay,Member,Food and beverages,9423.119999999999,6
+Mandalay,Normal,Fashion accessories,9073.785,7
+Mandalay,Normal,Health and beauty,8652.84,8
+Mandalay,Member,Home and lifestyle,7769.307,9
+Mandalay,Member,Electronic accessories,7424.8544999999995,10
+Mandalay,Member,Fashion accessories,7339.5315,11
+Mandalay,Normal,Food and beverages,5791.7685,12
+Naypyitaw,Member,Food and beverages,13057.443,1
+Naypyitaw,Member,Fashion accessories,12041.8515,2
+Naypyitaw,Normal,Electronic accessories,11041.023,3
+Naypyitaw,Normal,Food and beverages,10709.412,4
+Naypyitaw,Normal,Fashion accessories,9518.2185,5
+Naypyitaw,Normal,Health and beauty,8551.0005,6
+Naypyitaw,Member,Sports and travel,8137.29,7
+Naypyitaw,Member,Health and beauty,8064.3255,8
+Naypyitaw,Member,Electronic accessories,7927.9515,9
+Naypyitaw,Member,Home and lifestyle,7652.421,10
+Naypyitaw,Normal,Sports and travel,7624.638,11
+Naypyitaw,Normal,Home and lifestyle,6243.132,12
+Yangon,Member,Home and lifestyle,12556.299,1
+Yangon,Normal,Home and lifestyle,9860.8965,2
+Yangon,Normal,Sports and travel,9695.742,3
+Yangon,Member,Sports and travel,9676.9575,4
+Yangon,Normal,Fashion accessories,9389.9295,5
+Yangon,Normal,Electronic accessories,9171.424500000001,6
+Yangon,Member,Electronic accessories,9145.689,7
+Yangon,Member,Food and beverages,8877.057,8
+Yangon,Normal,Food and beverages,8286.0435,9
+Yangon,Member,Fashion accessories,6942.579,10
+Yangon,Member,Health and beauty,6438.894,11
+Yangon,Normal,Health and beauty,6158.859,12
